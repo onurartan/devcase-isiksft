@@ -4,7 +4,8 @@ import "./globals.css";
 
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import { ProductProvider } from "@/context/ProductContext";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
+import Providers from "./Providers";
+import { Suspense } from "react";
 
 const cario_font = Cairo({
   style: "normal",
@@ -26,9 +27,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${cario_font.className} antialiased`}>
         <ReactQueryProvider>
-          <NuqsAdapter>
-            <ProductProvider>{children}</ProductProvider>
-          </NuqsAdapter>
+          <Suspense fallback={<div></div>}>
+            <Providers>
+              <ProductProvider>{children}</ProductProvider>
+            </Providers>
+          </Suspense>
         </ReactQueryProvider>
       </body>
     </html>

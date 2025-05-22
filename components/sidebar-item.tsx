@@ -1,7 +1,10 @@
+"use client"
+
 import type React from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface SidebarItemProps {
   icon: React.ReactNode;
@@ -14,7 +17,7 @@ interface SidebarItemProps {
   pathname: string;
 }
 
-import { useState } from "react";
+
 
 export function SidebarItem({
   icon,

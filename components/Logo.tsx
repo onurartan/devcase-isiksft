@@ -1,3 +1,5 @@
+"use client"
+
 import React, { FC, useMemo } from "react";
 import Image from "next/image";
 
